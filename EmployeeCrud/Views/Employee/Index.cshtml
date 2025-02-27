@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EmployeeCrud.Models.Employee>
+
+<h2 class="text-center text-primary">Employees Details</h2>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-end mb-3">
+                <a href="/Employee/Create" class="btn btn-success">+ Add Employee</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped text-center">
+                    <thead class="table-dark">
+                        <tr>
+                            @* <th>EmpId</th> *@
+                            <th>Emp Code</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Salary</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Model)
+                        {
+                            <tr>
+                                @* <td>@employee.Id</td> *@
+                                <td>@employee.Emp_Code</td>
+                                <td>@employee.Emp_Name</td>
+                                <td>@employee.Designation</td>
+                                <td>@employee.Salary</td>
+                                <td>
+                                    <a href="/Employee/Edit/@employee.Id" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="/Employee/Delete/@employee.Id" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
